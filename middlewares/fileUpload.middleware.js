@@ -2,6 +2,18 @@ const multer = require('multer');
 const { extname } = require('path');
 const { v4 } = require('uuid');
 const imageId = v4()
+const fs = require('fs');
+
+const ensureDirectoryExistence = (dir) => {
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+    }
+};
+
+// Ensure directories exist
+ensureDirectoryExistence('public/u');
+ensureDirectoryExistence('public/p');
+
 
 // * Upload user avatar
 const userAvatarStorage = multer.diskStorage({
