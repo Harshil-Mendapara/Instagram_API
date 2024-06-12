@@ -1,6 +1,6 @@
 # Instagram_clone_API
 
-Welcome to the Instagram Clone API project! This repository contains the code to set up a backend server for an Instagram-like application.                         
+Welcome to the Instagram Clone API project! This repository contains the code to set up a backend server for an Instagram-like application.                        
 
 🚀 Getting Started
 Follow these instructions to set up and run the project on your local machine.                                                                          
