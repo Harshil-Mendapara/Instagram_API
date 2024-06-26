@@ -21,16 +21,17 @@ Installation:
 2.  Set up environment variables
       atSecretKey="access@token";
       PORT=5000
+    
       #DB
       DB_USER=<your-database-username>
       DB_PASSWORD=<your-database-password>
       DB_NAME=instagram_demo
       DB_DIALECT=mysql
 
-3. Install dependencies
+4. Install dependencies
    ● npm install
 
-4. Running the Server
+5. Running the Server
    Start the server using the following command:
    ● npm start
 
