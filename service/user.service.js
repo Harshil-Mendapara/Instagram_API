@@ -16,7 +16,7 @@ const findUser = async (whereQuery, attributes = null, query) => {
         const user = await User.findOne({ ...query, where: whereQuery, attributes });
         if (!user) throw new Error("User not found");
         return user.toJSON();
-    } catch (error) {
+    } catch (error) {   
         throw new Error(error.message);
     }
 }

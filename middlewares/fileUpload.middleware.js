@@ -9,8 +9,6 @@ const ensureDirectoryExistence = (dir) => {
         fs.mkdirSync(dir, { recursive: true });
     }
 };
-
-// Ensure directories exist
 ensureDirectoryExistence('public/u');
 ensureDirectoryExistence('public/p');
 
