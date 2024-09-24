@@ -28,7 +28,6 @@ const Post = (sequelize, DataTypes) => {
     Post.belongsTo(models.User, { as: "user", foreignKey: 'user_Id' });
     Post.hasMany(models.LikeComment, { as: 'likes', foreignKey: 'post_Id' });
     Post.hasMany(models.LikeComment, { as: 'comments', foreignKey: 'post_Id' });
-
   };
 
   return Post

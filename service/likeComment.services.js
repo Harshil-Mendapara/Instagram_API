@@ -15,8 +15,8 @@ const addPostComment = async (message, postId, userId) => {
     return comment;
 };
 
-const deleteComment = async (commentID, postId, userId) => {
-    const comment = await LikeComment.findOne({ where: { id: commentID, type: "comment", post_Id: postId, user_Id: userId } });
+const deleteComment = async (commentId, postId, userId) => {
+    const comment = await LikeComment.findOne({ where: { id: commentId, type: "comment", post_Id: postId, user_Id: userId } });
     if (!comment) throw Error("comment not found");
     await comment.destroy();
 };

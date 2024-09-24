@@ -34,7 +34,7 @@ const deleteUserPost = async (postId, userId) => {
 const findUsersAllPosts = async (whereQuery, attributes = null) => {
     try {
         const posts = await Post.findAll({ where: whereQuery, attributes });
-        if (!posts) throw new Error("User not found please Enter valid Token");
+        if (!posts || posts.length === 0) throw new Error("No posts found for this user");
         return posts;
     } catch (error) {
         throw new Error(error.message);

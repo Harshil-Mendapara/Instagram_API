@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const config = require('../config/db-config.js');
+const config = require('../config/db-config.js')[process.env.NODE_ENV || 'development'];
 
 const sequelize = new Sequelize(config.databaseName, config.username, config.password, {
     dialect: config.dialect
@@ -8,7 +8,7 @@ const sequelize = new Sequelize(config.databaseName, config.username, config.pas
 const db = {};
 
 const UserModel = require('./user-model');
-const PostModel = require('./post-model');  
+const PostModel = require('./post-model');
 const FollowModel = require('./follows-model');
 const LikeCommentModel = require('./likeComment-model.js');
 

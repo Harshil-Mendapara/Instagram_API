@@ -4,17 +4,27 @@ const sendFollowRequestController = async (req, res) => {
     const { id: SenderId } = req.user;
     const { userId: ReceiverId } = req.params;
 
-    if (+SenderId === +ReceiverId) {
-        return res.status(400).json({ error: true, message: "You can't send a request to yourself" });
+    try {
+        if (+SenderId === +ReceiverId) {
+            return res.status(400).json({ error: true, message: "You can't send a request to yourself" });
+        }
+
+        const request = await sendFollowRequest(SenderId, ReceiverId)
+        return res.status(200).json({ error: false, message: "follow request send successfully", data: request });
+    } catch (error) {
+        return res.status(500).json({
+            error: true,
+            message: 'Internal Server Error',
+            errorMessage: error.message
+        });
     }
-    const request = await sendFollowRequest(SenderId, ReceiverId)
-    return res.status(200).json({ error: false, message: "follow request send successfully", data: request });
 }
 
 
 const requestStatusController = async (req, res) => {
     const { id: ReceiverId } = req.user;
     const { userId: SenderId, status } = req.params;
+
     if (+SenderId === +ReceiverId) {
         return res.status(400).json({ error: true, message: "You can't perform any action to yourself" });
     }
@@ -34,8 +44,11 @@ const requestStatusController = async (req, res) => {
 
         return res.status(200).json({ error: false, message: `Request ${status} successfully` });
     } catch (error) {
-        console.error("Error:", error);
-        res.status(500).json({ error: true, message: "Request Not Found" });
+        return res.status(500).json({
+            error: true,
+            message: 'Internal Server Error',
+            errorMessage: error.message
+        });
     }
 }
 
@@ -54,14 +67,17 @@ const updateRequestStatusController = async (req, res) => {
         }
 
         if (status === "blocked") {
-            await deleteRequest(null, RequestID, ReceiverId)
+            await blockedRequest(null, RequestID, ReceiverId)
         }
 
         return res.status(200).json({ error: false, message: `Request ${status} successfully` });
     } catch (error) {
-        res.status(404).json({ error: true, message: "Request Not Found" });
+        return res.status(500).json({
+            error: true,
+            message: 'Internal Server Error',
+            errorMessage: error.message
+        });
     }
-
 }
 
 module.exports = {
