@@ -7,4 +7,5 @@ function createJwtToken(data) {
     };
 }
 
+
 module.exports = { createJwtToken };

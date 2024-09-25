@@ -21,7 +21,6 @@ const Follow = (sequelize, DataTypes) => {
         Follow.belongsTo(models.User, { as: "sender_user", foreignKey: "sender_id" });
          Follow.belongsTo(models.User, { as: "receiver_user", foreignKey: "receiver_id" });
     };
-
     return Follow;
 };
 

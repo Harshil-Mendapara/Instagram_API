@@ -18,6 +18,7 @@ const sendFollowRequest = async (SenderId, ReceiverId) => {
     }
 };
 
+
 const acceptRequest = async (RequestId, SenderId, ReceiverId) => {
     if (!((RequestId || SenderId) && ReceiverId)) {
         return res.status(400).json({ error: true, message: "Invalid request found" });
@@ -37,6 +38,7 @@ const acceptRequest = async (RequestId, SenderId, ReceiverId) => {
     Request.status = "accepted"
     await Request.save()
 }
+
 
 const deleteRequest = async (RequestId, SenderId, ReceiverId) => {
     if (!((RequestId || SenderId) && ReceiverId)) {

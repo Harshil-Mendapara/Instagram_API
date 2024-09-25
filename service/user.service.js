@@ -51,6 +51,7 @@ const deleteUser = async (userId) => {
     await user.destroy();
 }
 
+
 module.exports = {
     createUser,
     findUser,

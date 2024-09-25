@@ -6,20 +6,20 @@ const { userAvatarUpdate } = require('../middlewares/fileUpload.middleware');
 
 
 // * get users data
-app.get("/get", userAuthMiddleware, getUserData)
+app.get("/get", userAuthMiddleware, getUserData.handler);
 
 // * Register a new User
-app.post('/register', createUserController);
+app.post('/register', createUserController.validaton, createUserController.handler);
 
 // * Login user
-app.post('/login', loginUserController);
+app.post('/login', loginUserController.validaton, loginUserController.handler);
 
 // * Update user and avatar
-app.put("/update", userAvatarUpdate, userAuthMiddleware, updateUserController);
+app.put("/update", userAuthMiddleware, userAvatarUpdate, updateUserController.validaton, updateUserController.handler);
 
 // * Delete user avatar
-app.delete("/delete-avatar", userAuthMiddleware, deleteUserAvatarController)
+app.delete("/delete-avatar", userAuthMiddleware, deleteUserAvatarController.handler)
 
-app.delete("/delete-user", userAuthMiddleware, deleteUserController)
+app.delete("/delete-user", userAuthMiddleware, deleteUserController.handler)
 
 module.exports = app;
