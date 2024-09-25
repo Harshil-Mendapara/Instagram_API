@@ -49,7 +49,7 @@ const getUserData = {
                                 where: { type: 'like' },
                                 required: false,
                                 attributes: {
-                                    exclude: ["type", "user_Id", "post_Id", "createdAt", "updatedAt"]
+                                    exclude: ["type", "message", "user_Id", "post_Id", "createdAt", "updatedAt"]
                                 },
                                 include: [{
                                     model: User,
