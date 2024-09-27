@@ -149,7 +149,7 @@ const createUserController = {
 
 
 
-// * login  user
+// * login user
 const loginUserController = {
     validaton: validator({
         body: Joi.object({
