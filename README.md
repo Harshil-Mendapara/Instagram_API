@@ -6,7 +6,7 @@ Welcome to the Instagram Clone API project! This repository contains the code to
 Follow these instructions to set up and run the project on your local machine.
 
 Prerequisites:
-Make sure you have the following installed on your system:
+Make sure you have the following installed on your system:                                                                                                                                      
 ● Node js                                                                                                                                                                                       
 ● npm                                                                                                                                                                                    
 ● MySQL                                                                                                                                                                                         
