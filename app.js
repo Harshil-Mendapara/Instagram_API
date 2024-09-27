@@ -10,8 +10,12 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cors())
-app.use("/api", routes);
+app.use((req, res, next) => {
+  console.log(`${req.method} request made to: ${req.url}`);
+  next();
+});
 
+app.use("/api", routes);
 
 const port = process.env.PORT
 app.listen(port, async () => {
