@@ -3,17 +3,15 @@ const db = require('./models');
 const bodyParser = require('body-parser');
 const routes = require('./routes');
 const cors = require("cors");
+const morgan = require('morgan');
 const app = express()
 require("dotenv").config();
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use(cors())
-app.use((req, res, next) => {
-  console.log(`${req.method} request made to: ${req.url}`);
-  next();
-});
+app.use(cors());
+app.use(morgan('dev'));
 
 app.use("/api", routes);
 
