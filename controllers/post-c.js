@@ -2,6 +2,7 @@ const { createUserPost, findUserPost, deleteUserPost, findUsersAllPosts } = requ
 const validator = require("../utils/validator.");
 const Joi = require("joi");
 
+
 const createPostController = {
     validaton: validator({
         body: Joi.object({
@@ -23,7 +24,7 @@ const createPostController = {
             });
 
             if (!post) {
-                return res.status(404).json({ error: false, message: "Post Not Created"});
+                return res.status(404).json({ error: true, message: "Post Not Created" });
             }
 
             return res.status(200).json({ error: false, message: "Post create successfully", post: post });

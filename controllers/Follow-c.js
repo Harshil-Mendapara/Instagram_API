@@ -19,8 +19,8 @@ const sendFollowRequestController = {
                 return res.status(400).json({ error: true, message: "You can't send a request to yourself" });
             }
 
-            const request = await sendFollowRequest(SenderId, ReceiverId)
-            return res.status(200).json({ error: false, message: "follow request send successfully", data: request });
+            await sendFollowRequest(SenderId, ReceiverId)
+            return res.status(200).json({ error: false, message: "follow request send successfully" });
         } catch (error) {
             return res.status(500).json({
                 error: true,

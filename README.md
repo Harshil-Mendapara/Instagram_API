@@ -18,14 +18,14 @@ Installation:
    ● git clone https://github.com/Harshil-Mendapara/Instagram_API
    ● cd Instagram_API
 
-2.  Set up environment variables
-      atSecretKey="access@token";
-      PORT=5000
-      #DB
-      DB_USER=<your-database-username>
-      DB_PASSWORD=<your-database-password>
-      DB_NAME=instagram_demo
-      DB_DIALECT=mysql
+2. Set up environment variables
+   atSecretKey="access@token";
+   PORT=5000
+   #DB
+   DB_USER=<your-database-username>
+   DB_PASSWORD=<your-database-password>
+   DB_NAME=instagram_demo
+   DB_DIALECT=mysql
 
 3. Install dependencies
    ● npm install

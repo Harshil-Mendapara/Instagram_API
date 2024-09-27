@@ -166,9 +166,9 @@ const loginUserController = {
             }
 
             const loginUser = await findUser(username ? { username } : { email });
-            console.log('loginUser', loginUser)
+
             if (!loginUser) {
-                res.status(400).json({ error: false, message: "User not found" });
+                res.status(400).json({ error: true, message: "User not found" });
             }
 
             const isValidPassword = await compare(password, loginUser.password);
@@ -176,7 +176,7 @@ const loginUserController = {
                 res.status(400).json({ error: true, message: "Invalid password" });
             }
 
-            delete loginUser.password
+            delete loginUser.password;
             const token = createJwtToken({ userId: loginUser.id });
 
             res.status(200).json({
@@ -260,8 +260,8 @@ const deleteUserAvatarController = {
         const { userId } = req.user;
 
         try {
-            const avtar = await deleteAvatar(userId);
-            return res.status(200).json({ error: false, message: "user avatar deleted successfully", data: avtar });
+            await deleteAvatar(userId);
+            return res.status(200).json({ error: false, message: "user avatar deleted successfully" });
         } catch (error) {
             res.status(500).json({
                 error: true,
