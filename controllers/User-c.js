@@ -254,7 +254,7 @@ const updateUserController = {
 }
 
 
-// * update  user avatar
+// * delete  user avatar
 const deleteUserAvatarController = {
     handler: async (req, res) => {
         const { userId } = req.user;
